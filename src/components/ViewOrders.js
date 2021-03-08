@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { ToastContainer, Flip, toast } from "react-toastify";
+import { ToastContainer, Flip } from "react-toastify";
 import dominoLogo from "../assets/domino_logo.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Table, Label, NavItem, Input, Col, Row } from "reactstrap";
+import { Table, Label, Input, Col, Row } from "reactstrap";
 import Toppings from "./Toppings/Toppings";
 import { debounce } from "../helper/helper";
 
@@ -41,13 +41,15 @@ function ViewOrders() {
     const second_half = [];
 
     toppings.map((topping, i) => {
-      if (topping.toppings_type_id == 1) {
+      if (topping.toppings_type_id === 1) {
         whole.push(topping.title);
-      } else if (topping.toppings_type_id == 2) {
+      } else if (topping.toppings_type_id === 2) {
         first_half.push(topping.title);
-      } else if (topping.toppings_type_id == 3) {
+      } else if (topping.toppings_type_id === 3) {
         second_half.push(topping.title);
       }
+
+      return true;
     });
 
     return (
